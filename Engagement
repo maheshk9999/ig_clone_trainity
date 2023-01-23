@@ -1,0 +1,5 @@
+// Avg posts by users//
+
+select
+    round((select count(*) from ig_clone.photos ) /
+    ( select count(*) from ig_clone.users ),2) as avg_user_post;
