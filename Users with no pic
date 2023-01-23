@@ -1,0 +1,8 @@
+// Users who have not uploaded anything since sign up//
+
+select distinct username, 
+       created_dat 
+       from ig_clone.users
+left join ig_clone.photos
+       on users.id = photos.user_id
+where created_dat is null
