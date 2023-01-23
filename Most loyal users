@@ -1,0 +1,4 @@
+// Getting oldest 5 users//
+
+Select * from ig_clone.users
+order by created_at limit 5
