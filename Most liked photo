@@ -1,0 +1,15 @@
+select users.id as user_id, username,
+	  photos.id as photo_id,
+    photos.image_url,
+    count(*) as total_likes
+from ig_clone.users
+
+join ig_clone.photos
+    on users.id = photos.user_id
+
+join ig_clone.likes
+    on photos.id = likes.photo_id
+    
+group by photos.id
+     order by total_likes DESC
+    limit 1
