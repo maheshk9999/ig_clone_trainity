@@ -1,0 +1,11 @@
+// Every site has a problem of bots. To check bots or fake account//
+
+select users.id as user_id,
+	username, count(*) as total_like_by_users
+    from ig_clone.users
+    
+join ig_clone.likes
+on users.id = likes.user_id
+
+group by users.id
+	having total_like_by_users = (select count(*) from ig_clone.photos)
