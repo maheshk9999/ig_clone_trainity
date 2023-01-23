@@ -1,0 +1,13 @@
+// Best day of week to launch ad campaign//
+
+set sql_mode=(select replace(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));
+// Use above line only if error is showing 'ONLY_FULL_GROUP_BY'//
+
+
+select id, username, created_at,
+dayname(created_at) as day_name,
+count(*) as total_users_registered
+from ig_clone.users
+
+group by day_name
+order by total_users_registered desc
